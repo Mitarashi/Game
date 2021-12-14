@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Library/Utility/Vector.h"
+#include "../Library/Vector.h"
 
 // レンダーコンテキスト
 struct RenderContext

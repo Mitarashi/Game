@@ -3,7 +3,7 @@
 #include <d3d11.h>
 #include <wrl.h>
 
-#include "../Library/Utility/Vector.h"
+#include "../Library/Vector.h"
 
 // プリミティブ
 class Primitive

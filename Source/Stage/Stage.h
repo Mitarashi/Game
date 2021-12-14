@@ -6,7 +6,7 @@
 #include "../Collision.h"
 
 // ステージ
-class Stage
+class Stage : public Obj3d
 {
 public:
 	// コンストラクタ

@@ -149,7 +149,4 @@ private:
 	State					state				= State::Idle;
 	float					leftHandRadius		= 0.4f;
 	bool					attackCollisionFlag = false;
-
-	std::unique_ptr<Model>	model				= nullptr;
-	std::unique_ptr<Shader>	shader				= nullptr;
 };

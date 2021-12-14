@@ -3,6 +3,7 @@
 #include "../Library/Model/Model.h"
 #include "../Library/Shader/Shader.h"
 
+#include "Box.h"
 #include "Stage.h"
 
 // メインステージ
@@ -27,6 +28,5 @@ public:
 		HitResult& hit) override;
 
 private:
-	std::unique_ptr<Model> model = nullptr;
-	std::unique_ptr<Shader> shader = nullptr;
+	std::unique_ptr<Box> box = nullptr;
 };

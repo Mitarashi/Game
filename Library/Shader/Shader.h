@@ -5,7 +5,7 @@
 #include <d3d11.h>
 
 #include "../Model/Model.h"
-#include "../Utility/Vector.h"
+#include "../Library/Vector.h"
 
 #include "RenderContext.h"
 #include "ShaderFunction.h"

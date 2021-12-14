@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Library/Utility/Vector.h"
+#include "../Library/Vector.h"
 
 // 算術
 class Math
@@ -32,10 +32,11 @@ public:
 	static DxMATRIX MatrixScaling(Vec3& scale);
 
 	// 回転行列算出
+	static DxMATRIX MatrixRotation(Vec3& angle);
 	static DxMATRIX MatrixRotationQuaternion(Vec4& rotate);
 
 	// 平行移動行列算出
-	static DxMATRIX MatrixTranslation(Vec3& translate);
+	static DxMATRIX MatrixTranslation(Vec3& position);
 
 	// ベクトルの長さ算出
 	static float Vector2Length(DxVECTOR& vec);

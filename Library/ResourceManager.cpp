@@ -223,7 +223,7 @@ HRESULT ResourceManager::CreateGSFromCSO(
 	}
 
 	FILE* fp = nullptr;
-	fopen_s(&fp, csoName, "rd");
+	fopen_s(&fp, csoName, "rb");
 	_ASSERT_EXPR(fp, "CSO File not found");
 
 	fseek(fp, 0, SEEK_END);

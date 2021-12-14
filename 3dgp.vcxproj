@@ -34,6 +34,9 @@
     <ClCompile Include="Library\Debug\ImGuiRenderer.cpp" />
     <ClCompile Include="Library\Debug\Logger.cpp" />
     <ClCompile Include="Library\DxSystem.cpp" />
+    <ClCompile Include="Library\Effect\Particle.cpp" />
+    <ClCompile Include="Library\Effect\ParticleFire.cpp" />
+    <ClCompile Include="Library\Effect\ParticleManager.cpp" />
     <ClCompile Include="Library\Effect\ParticleSystem.cpp" />
     <ClCompile Include="Library\Input\GamePad.cpp" />
     <ClCompile Include="Library\Input\InputManager.cpp" />
@@ -49,7 +52,7 @@
     <ClCompile Include="Library\Utility\SkyBox.cpp" />
     <ClCompile Include="Library\Utility\Sprite.cpp" />
     <ClCompile Include="Library\Utility\Texture.cpp" />
-    <ClCompile Include="Library\Utility\Vector.cpp" />
+    <ClCompile Include="Library\Vector.cpp" />
     <ClCompile Include="Source\Character\Character.cpp" />
     <ClCompile Include="Source\Character\Enemy.cpp" />
     <ClCompile Include="Source\Character\EnemyManager.cpp" />
@@ -62,12 +65,14 @@
     <ClCompile Include="Source\Collision.cpp" />
     <ClCompile Include="Source\Framework.cpp" />
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Obj3d.cpp" />
     <ClCompile Include="Source\Scene\Scene.cpp" />
     <ClCompile Include="Source\Scene\SceneGame.cpp" />
     <ClCompile Include="Source\Scene\SceneLoading.cpp" />
     <ClCompile Include="Source\Scene\SceneManager.cpp" />
     <ClCompile Include="Source\Scene\SceneTest.cpp" />
     <ClCompile Include="Source\Scene\SceneTitle.cpp" />
+    <ClCompile Include="Source\Stage\Box.cpp" />
     <ClCompile Include="Source\Stage\StageMain.cpp" />
     <ClCompile Include="Source\Stage\StageManager.cpp" />
   </ItemGroup>
@@ -89,6 +94,9 @@
     <ClInclude Include="Library\Debug\ImGuiRenderer.h" />
     <ClInclude Include="Library\Debug\Logger.h" />
     <ClInclude Include="Library\DxSystem.h" />
+    <ClInclude Include="Library\Effect\Particle.h" />
+    <ClInclude Include="Library\Effect\ParticleFire.h" />
+    <ClInclude Include="Library\Effect\ParticleManager.h" />
     <ClInclude Include="Library\Effect\ParticleSystem.h" />
     <ClInclude Include="Library\Input\GamePad.h" />
     <ClInclude Include="Library\Input\InputManager.h" />
@@ -111,7 +119,7 @@
     <ClInclude Include="Library\Utility\SkyBox.h" />
     <ClInclude Include="Library\Utility\Sprite.h" />
     <ClInclude Include="Library\Utility\Texture.h" />
-    <ClInclude Include="Library\Utility\Vector.h" />
+    <ClInclude Include="Library\Vector.h" />
     <ClInclude Include="Source\Character\Character.h" />
     <ClInclude Include="Source\Character\Enemy.h" />
     <ClInclude Include="Source\Character\EnemyManager.h" />
@@ -124,12 +132,14 @@
     <ClInclude Include="Source\Character\StateSwitch.h" />
     <ClInclude Include="Source\Collision.h" />
     <ClInclude Include="Source\Framework.h" />
+    <ClInclude Include="Source\Obj3d.h" />
     <ClInclude Include="Source\Scene\Scene.h" />
     <ClInclude Include="Source\Scene\SceneGame.h" />
     <ClInclude Include="Source\Scene\SceneLoading.h" />
     <ClInclude Include="Source\Scene\SceneManager.h" />
     <ClInclude Include="Source\Scene\SceneTest.h" />
     <ClInclude Include="Source\Scene\SceneTitle.h" />
+    <ClInclude Include="Source\Stage\Box.h" />
     <ClInclude Include="Source\Stage\Stage.h" />
     <ClInclude Include="Source\Stage\StageMain.h" />
     <ClInclude Include="Source\Stage\StageManager.h" />
@@ -139,6 +149,7 @@
     <None Include="HLSL\ImGui.hlsli" />
     <None Include="HLSL\Lambert.hlsli" />
     <None Include="HLSL\NoLight.hlsli" />
+    <None Include="HLSL\PointSprite.hlsli" />
     <None Include="HLSL\Primitive.hlsli" />
     <None Include="HLSL\SkyBox.hlsli" />
     <None Include="HLSL\Sprite.hlsli" />
@@ -221,6 +232,28 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="HLSL\PointSprite_vs.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
+    <FxCompile Include="HLSL\PointSprite_gs.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Geometry</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Geometry</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Geometry</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4.0</ShaderModel>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Geometry</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4.0</ShaderModel>
+    </FxCompile>
+    <FxCompile Include="HLSL\PointSprite_ps.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
     <FxCompile Include="HLSL\Primitive_ps.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>

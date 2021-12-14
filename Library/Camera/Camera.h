@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "../Library/Utility/Vector.h"
+#include "../Library/Vector.h"
 
 // ƒJƒƒ‰
 class Camera

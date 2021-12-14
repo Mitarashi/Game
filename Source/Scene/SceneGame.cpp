@@ -1,6 +1,7 @@
 #include "../Library/DxSystem.h"
 #include "../Library/Audio/Audio.h"
 #include "../Library/Input/InputManager.h"
+#include "../Library/Shader/LambertShader.h"
 
 #include "Character/EnemySlime.h"
 #include "Character/EnemyMutant.h"
@@ -45,14 +46,18 @@ void SceneGame::Initialize()
 		//	slime->SetTerritory(slime->GetPosition(), 10.0f);
 		//	enemyManager.Register(slime);
 		//}
-		std::shared_ptr<EnemyMutant> mutant = std::make_shared<EnemyMutant>();
-		mutant->SetPosition(Vec3(4, 0, 5));
-		EnemyManager::Instance().Register(mutant);
+		//std::shared_ptr<EnemyMutant> mutant = std::make_shared<EnemyMutant>();
+		//mutant->SetPosition(Vec3(4, 0, 5));
+		//EnemyManager::Instance().Register(mutant);
 	}
 
 	// スカイボックス初期化
 	{
 		skyBox = std::make_unique<SkyBox>();
+	}
+
+	// エフェクト初期化
+	{
 	}
 }
 
@@ -79,6 +84,8 @@ void SceneGame::Update()
 	StageManager::Instance().Update();
 	EnemyManager::Instance().Update();
 	PlayerManager::Instance().Update();
+
+	GamePad& gamePad = InputManager::Instance().GetGamePad();
 }
 
 // 描画処理
@@ -150,6 +157,23 @@ void SceneGame::OnGui()
 			slime->SetTerritory(slime->GetPosition(), 10.0f);
 			EnemyManager::Instance().Register(slime);
 		}
+
+
+		//if (ImGui::CollapsingHeader("Particle", ImGuiTreeNodeFlags_DefaultOpen))
+		//{
+		//	for (int i = 0; i < snowEffect->numParticle; i++)
+		//	{
+		//		auto& effect = snowEffect->particleData[i];
+		//		if (effect.type < 0) continue;
+		//		std::string name = {};
+		//		name += i;
+		//		if (ImGui::CollapsingHeader(name.c_str(), ImGuiTreeNodeFlags_DefaultOpen))
+		//		{
+		//			ImGui::InputInt("Type", &effect.type);
+		//			ImGui::InputFloat("Timer", &effect.timer);
+		//		}
+		//	}
+		//}
 	}
 	ImGui::End();
 

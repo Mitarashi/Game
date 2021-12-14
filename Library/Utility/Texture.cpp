@@ -16,8 +16,6 @@ void Texture::Load(const char* fileName)
 	// 画像ファイル読み込み DirectXTex
 	DirectX::TexMetadata metadata;
 	DirectX::ScratchImage image;
-	SecureZeroMemory(&metadata, sizeof(DirectX::TexMetadata));
-	SecureZeroMemory(&image, sizeof(DirectX::ScratchImage));
 	HRESULT hr = DirectX::LoadFromWICFile(wfileName, DirectX::WIC_FLAGS_NONE, &metadata, image);
 	_ASSERT_EXPR(SUCCEEDED(hr), HRTrace(hr));
 
@@ -32,6 +30,8 @@ void Texture::Load(const char* fileName)
 	// テクスチャデータ取得
 	texture2dDesc.Width = static_cast<u_int>(metadata.width);
 	texture2dDesc.Height = static_cast<u_int>(metadata.height);
+
+	//image.Release();
 }
 
 void Texture::Set(u_int slot, bool flg)

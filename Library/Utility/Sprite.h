@@ -3,7 +3,7 @@
 #include <wrl.h>
 #include <d3d11.h>
 
-#include "Vector.h"
+#include "../Library/Vector.h"
 #include "../ResourceManager.h"
 
 // スプライト

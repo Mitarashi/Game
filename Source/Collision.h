@@ -1,7 +1,7 @@
 #pragma once
 
+#include "../Library/Vector.h"
 #include "../Library/Model/Model.h"
-#include "../Library/Utility/Vector.h"
 #include "../Source/Character/Character.h"
 
 // ‹…”»’è—p\‘¢‘Ì

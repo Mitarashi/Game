@@ -1,7 +1,9 @@
 #pragma once
 
+#include <vector>
 #include <crtdbg.h>
 #include <windows.h>
+#include <algorithm>
 
 #include "ResourceManager.h"
 
@@ -52,5 +54,13 @@ namespace Utility
 		DirectX::XMVECTOR Cross = DirectX::XMVector3Cross(V, v2.GetXMVector());
 		Vec3 cross = Vec3(Cross);
 		return Math::Vector3Dot(cross, normal);
+	}
+
+	template<class T>
+	inline auto GetIterator(std::vector<T> vector, T& find)
+	{
+		auto& it = std::find(vector.begin(), vector.end(), find);
+		if (it != vector.end()) return it;
+		return vector.end();
 	}
 };

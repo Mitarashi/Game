@@ -131,7 +131,6 @@ DxSystem::DxSystem(const HWND hwnd, const bool isFullScreen) : isFullScreen(isFu
 	CreateRasterizerState();
 	CreateBlendState();
 
-
 	// ƒŒƒ“ƒ_ƒ‰
 	{
 		debugRenderer = std::make_unique<DebugRenderer>();
@@ -279,7 +278,7 @@ void DxSystem::CreateBlendState()
 		bd.AlphaToCoverageEnable = false;
 		bd.RenderTarget[0].BlendEnable = true;
 		bd.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
-		bd.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+		bd.RenderTarget[0].DestBlend = D3D11_BLEND_ONE;
 		bd.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
 
 		bd.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ZERO;

@@ -55,15 +55,24 @@ Math::DxMATRIX Math::MatrixScaling(Vec3& scale)
 }
 
 // 回転行列算出
+Math::DxMATRIX Math::MatrixRotation(Vec3& angle)
+{
+	DxMATRIX X = DirectX::XMMatrixRotationX(angle.x);
+	DxMATRIX Y = DirectX::XMMatrixRotationY(angle.y);
+	DxMATRIX Z = DirectX::XMMatrixRotationZ(angle.z);
+	return Y * X * Z;
+}
+
+// 回転行列算出
 Math::DxMATRIX Math::MatrixRotationQuaternion(Vec4& rotate)
 {
 	return DirectX::XMMatrixRotationQuaternion(DirectX::XMLoadFloat4(&rotate));
 }
 
 // 平行移動行列算出
-Math::DxMATRIX Math::MatrixTranslation(Vec3& translate)
+Math::DxMATRIX Math::MatrixTranslation(Vec3& position)
 {
-	return DirectX::XMMatrixTranslation(translate.x, translate.y, translate.z);
+	return DirectX::XMMatrixTranslation(position.x, position.y, position.z);
 }
 
 // ベクトルの長さ算出

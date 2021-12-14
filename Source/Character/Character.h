@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Library/Utility/Vector.h"
+#include "Obj3d.h"
 
 // キャラクター
-class Character
+class Character : public Obj3d
 {
 public:
 	// コンストラクタ
@@ -12,23 +12,12 @@ public:
 	// デストラクタ
 	virtual ~Character() = default;
 
-	// 行列更新処理
-	void UpdateTransform();
-
 	// getter
-	const Vec3&	GetPosition()	 const { return position; }
-	const Vec3&	GetAngle()		 const { return angle; }
-	const Vec3&	GetScale()		 const { return scale; }
 	const float	GetRadius()		 const { return radius; }
 	const float	GetHeight()		 const { return height; }
 	const bool	IsGround()		 const { return isGround; }
 	const int	GetHitPoint()	 const { return hitPoint; }
 	const int	GetMaxHitPoint() const { return maxHitPoint; }
-
-	// setter
-	void SetPosition(const Vec3& position_)	{ position = position_; }
-	void SetAngle(const Vec3& angle_)		{ angle = angle_; }
-	void SetScale(const Vec3& scale_)		{ scale = scale_; }
 
 	// ダメージを与える
 	virtual bool ApplyDamage(int damage, float invincibleTime);
@@ -76,14 +65,8 @@ private:
 	void UpdateHorizontalMove();
 
 protected:
-	Vec3				position		= { 0,0,0 };
-	Vec3				angle			= { 0,0,0 };
-	Vec3				scale			= { 1,1,1 };
-	DirectX::XMFLOAT4X4	transform		= { 1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1 };
 	float				radius			= 0.5f;
-	float				gravity			= -1.0f;
 	float				height			= 2.0f;
-	Vec3				velocity		= { 0,0,0 };
 	bool				isGround		= false;
 	float				invincibleTimer = 1.0f;
 	float				friction		= 0.5f;

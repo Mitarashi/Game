@@ -127,8 +127,6 @@ private:
 
 	std::vector<States> states = {};
 private:
-	std::unique_ptr<Model>	model = nullptr;
-	std::unique_ptr<Shader>	shader = nullptr;
 	State					state = State::Wander;
 	Vec3					targetPosition = { 0, 0, 0 };
 	Vec3					territoryOrigin = { 0, 0, 0 };

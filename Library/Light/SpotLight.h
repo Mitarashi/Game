@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Utility/Vector.h"
+#include "../Library/Vector.h"
 
 class SpotLight
 {

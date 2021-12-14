@@ -35,7 +35,7 @@ public:
 
 private:
 	bool ready = false;
-	bool isLoadScene = false;
+	bool isLoadScene = true;
 
 protected:
 	std::string sceneName = {};

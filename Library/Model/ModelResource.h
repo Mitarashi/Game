@@ -5,7 +5,7 @@
 #include <vector>
 #include <d3d11.h>
 
-#include "../Library/Utility/Vector.h"
+#include "../Library/Vector.h"
 
 class ModelResource
 {

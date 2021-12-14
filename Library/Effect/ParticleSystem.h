@@ -15,7 +15,11 @@ public:
 	ParticleSyetem(std::shared_ptr<Texture> texture, int num = (10000));
 
 	// デストラクタ
-	~ParticleSyetem() = default;
+	~ParticleSyetem()
+	{
+		delete[] particleData;
+		delete[] vertexData;
+	}
 
 	// 更新処理
 	void Update();
@@ -26,7 +30,7 @@ public:
 	// 描画処理
 	void Render(const RenderContext& rc, DxSystem::BS state = DxSystem::BS::ALPHA);
 
-	void Set(Vec3 position);
+	//void Set(Vec3 position);
 	void Set(int type, float timer,
 		Vec3 position,
 		Vec3 velocity	= Vec3(0.0f, 0.0f, 0.0f),
@@ -67,14 +71,19 @@ private:
 		Vec3				dummy		= {};
 	};
 
+public:
+	ParticleData*									particleData	= {};
+	VertexData*										vertexData		= {};
+	int												numParticle		= 0;
+
 private:
-	std::vector<ParticleData>	particleData			= {};
-	std::vector<VertexData>		vertexData				= {};
+	Microsoft::WRL::ComPtr<ID3D11Buffer>			vertexBuffer	= nullptr;
+	Microsoft::WRL::ComPtr<ID3D11Buffer>			constantBuffer	= nullptr;
 
-	Microsoft::WRL::ComPtr<ID3D11Buffer> vertexBuffer	= nullptr;
-	Microsoft::WRL::ComPtr<ID3D11Buffer> constantBuffer = nullptr;
+	Microsoft::WRL::ComPtr<ID3D11VertexShader>		vertexShader	= nullptr;
+	Microsoft::WRL::ComPtr<ID3D11GeometryShader>	geometryShader	= nullptr;
+	Microsoft::WRL::ComPtr<ID3D11PixelShader>		pixelShader		= nullptr;
+	Microsoft::WRL::ComPtr<ID3D11InputLayout>		inputLayout		= nullptr;
 
-	std::shared_ptr<Texture>			 texture		= nullptr;
-
-	int									 numParticle	= 0;
+	std::shared_ptr<Texture>						texture			= nullptr;
 };

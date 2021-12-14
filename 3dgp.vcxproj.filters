@@ -91,6 +91,9 @@
     <Filter Include="Source\Character\StateMachine">
       <UniqueIdentifier>{c2815ef1-1018-47a1-ab01-2ecd40199a6e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="HLSL\PointSprite">
+      <UniqueIdentifier>{15050aba-fb4f-465d-bf7c-fcd150b9a138}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Library\Audio\Audio.cpp">
@@ -154,9 +157,6 @@
       <Filter>Library\Utility</Filter>
     </ClCompile>
     <ClCompile Include="Library\Utility\Texture.cpp">
-      <Filter>Library\Utility</Filter>
-    </ClCompile>
-    <ClCompile Include="Library\Utility\Vector.cpp">
       <Filter>Library\Utility</Filter>
     </ClCompile>
     <ClCompile Include="Library\Math.cpp">
@@ -246,6 +246,24 @@
     <ClCompile Include="Library\Effect\ParticleSystem.cpp">
       <Filter>Library\Effect</Filter>
     </ClCompile>
+    <ClCompile Include="Library\Effect\ParticleFire.cpp">
+      <Filter>Library\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Effect\ParticleManager.cpp">
+      <Filter>Library\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Effect\Particle.cpp">
+      <Filter>Library\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="Library\Vector.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Obj3d.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Stage\Box.cpp">
+      <Filter>Source\Stage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Library\Audio\Audio.h">
@@ -318,9 +336,6 @@
       <Filter>Library\Utility</Filter>
     </ClInclude>
     <ClInclude Include="Library\Utility\Texture.h">
-      <Filter>Library\Utility</Filter>
-    </ClInclude>
-    <ClInclude Include="Library\Utility\Vector.h">
       <Filter>Library\Utility</Filter>
     </ClInclude>
     <ClInclude Include="Library\Math.h">
@@ -431,6 +446,24 @@
     <ClInclude Include="Library\Effect\ParticleSystem.h">
       <Filter>Library\Effect</Filter>
     </ClInclude>
+    <ClInclude Include="Library\Effect\Particle.h">
+      <Filter>Library\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Effect\ParticleFire.h">
+      <Filter>Library\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Effect\ParticleManager.h">
+      <Filter>Library\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Obj3d.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Library\Vector.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Stage\Box.h">
+      <Filter>Source\Stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="HLSL\Sprite.hlsli">
@@ -459,6 +492,9 @@
     </None>
     <None Include="HLSL\NoLight.hlsli">
       <Filter>HLSL\NoLight</Filter>
+    </None>
+    <None Include="HLSL\PointSprite.hlsli">
+      <Filter>HLSL\PointSprite</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -503,6 +539,15 @@
     </FxCompile>
     <FxCompile Include="HLSL\NoLight_vs.hlsl">
       <Filter>HLSL\NoLight</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\PointSprite_gs.hlsl">
+      <Filter>HLSL\PointSprite</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\PointSprite_ps.hlsl">
+      <Filter>HLSL\PointSprite</Filter>
+    </FxCompile>
+    <FxCompile Include="HLSL\PointSprite_vs.hlsl">
+      <Filter>HLSL\PointSprite</Filter>
     </FxCompile>
   </ItemGroup>
 </Project>
