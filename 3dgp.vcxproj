@@ -92,6 +92,7 @@
     <ClInclude Include="Library\Debug\DebugRenderer.h" />
     <ClInclude Include="Library\Debug\HighResolutionTimer.h" />
     <ClInclude Include="Library\Debug\ImGuiRenderer.h" />
+    <ClInclude Include="Library\Debug\LineRenderer.h" />
     <ClInclude Include="Library\Debug\Logger.h" />
     <ClInclude Include="Library\DxSystem.h" />
     <ClInclude Include="Library\Effect\Particle.h" />

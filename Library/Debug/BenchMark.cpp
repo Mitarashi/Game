@@ -21,3 +21,4 @@ float Benchmark::End()
 	return static_cast<float>(currentTicks.QuadPart - startTicks.QuadPart) /
 		static_cast<float>(ticksPerSecond.QuadPart);
 }
+

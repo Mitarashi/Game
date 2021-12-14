@@ -81,4 +81,3 @@ private:
 	u_int										sphereVertexCount		= 0;
 	u_int										cylinderVertexCount		= 0;
 };
-

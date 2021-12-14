@@ -464,6 +464,9 @@
     <ClInclude Include="Source\Stage\Box.h">
       <Filter>Source\Stage</Filter>
     </ClInclude>
+    <ClInclude Include="Library\Debug\LineRenderer.h">
+      <Filter>Library\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="HLSL\Sprite.hlsli">
